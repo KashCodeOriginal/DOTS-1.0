@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fieldDimensions:
-    x: 40
-    y: 40
-  _tombstonesSpawnAmount: 30
+    x: 100
+    y: 100
+  _tombstonesSpawnAmount: 250
   _tombstonePrefab: {fileID: 6432581100300243915, guid: 10281d5abc6921c4999520d03caaff17,
     type: 3}
   _seed: 100
@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614175595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.3, y: 2.8, z: 19.1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []

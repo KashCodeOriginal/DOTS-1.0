@@ -19,6 +19,8 @@ namespace Authoring
             {
                 RandomValue = Random.CreateFromIndex(authoring.Seed)
             });
+            
+            AddComponent(new ZombieSpawnPoint { });
         }
     }
 }

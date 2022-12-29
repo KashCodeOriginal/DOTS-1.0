@@ -1,4 +1,5 @@
-﻿using Unity.Entities;
+﻿using Unity.Collections;
+using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
@@ -13,12 +14,22 @@ namespace Components
         private readonly RefRO<GraveyardProperties> _graveyardProperties;
 
         private readonly RefRW<GraveyardRandom> _graveyardRandom;
+        
+        private readonly RefRW<ZombieSpawnPoint> _zombieSpawnPoint; 
+
+        private const float TOMBSTONE_SAFETY_RADIUS = 200f;
 
         public int TombstonesSpawnAmount => _graveyardProperties.ValueRO.TombstonesSpawnAmount;
         public Entity TombstonePrefab => _graveyardProperties.ValueRO.TombstonePrefab;
 
         private float3 minCorner => _transformAspect.LocalPosition - HalfDimensions;
         private float3 maxCorner => _transformAspect.LocalPosition + HalfDimensions;
+
+        public NativeArray<float3> ZombieSpawnPoints
+        {
+            get => _zombieSpawnPoint.ValueRO.SpawnPointPosition;
+            set => _zombieSpawnPoint.ValueRW.SpawnPointPosition = value;
+        }
 
         private float3 HalfDimensions => new float3()
         {
@@ -32,8 +43,8 @@ namespace Components
             return new LocalTransform()
             {
                 Position = GetRandomPosition(),
-                Rotation = quaternion.identity,
-                Scale = 1,
+                Rotation = GetRandomRotation(),
+                Scale = GetRandomScale(),
             }; 
         }
 
@@ -41,9 +52,24 @@ namespace Components
         {
             float3 randomPosition = new float3();
 
-            randomPosition = _graveyardRandom.ValueRW.RandomValue.NextFloat3(minCorner, maxCorner);
-
+            do
+            {
+                randomPosition = _graveyardRandom.ValueRW.RandomValue.NextFloat3(minCorner, maxCorner);
+                randomPosition.y = 1f;
+            }
+            while (math.distancesq(_transformAspect.LocalPosition, randomPosition) < TOMBSTONE_SAFETY_RADIUS); 
+            
             return randomPosition;
+        }
+        
+        private quaternion GetRandomRotation()
+        {
+            return quaternion.RotateY(_graveyardRandom.ValueRW.RandomValue.NextFloat(-math.PI, math.PI));
+        }
+        
+        private float GetRandomScale()
+        {
+            return _graveyardRandom.ValueRW.RandomValue.NextFloat(0.5f, 1f);
         }
     }
 }
