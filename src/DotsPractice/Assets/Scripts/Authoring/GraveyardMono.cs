@@ -11,8 +11,13 @@ namespace Authoring
         
         [SerializeField] private GameObject _tombstonePrefab;
         
+        [SerializeField] private GameObject _zombiePrefab;
+
+
         [SerializeField] private uint _seed;
-        
+
+        [SerializeField] private float _zombieSpawnInterval;
+
         public float2 FieldDimensions => _fieldDimensions;
 
         public int TombstonesSpawnAmount => _tombstonesSpawnAmount;
@@ -20,5 +25,8 @@ namespace Authoring
         public GameObject TombstonePrefab => _tombstonePrefab;
 
         public uint Seed => _seed;
+        public GameObject ZombiePrefab => _zombiePrefab;
+
+        public float ZombieSpawnInterval => _zombieSpawnInterval;
     }
 }

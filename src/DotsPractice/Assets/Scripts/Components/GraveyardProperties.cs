@@ -8,5 +8,7 @@ namespace Components
         public float2 FieldDimension;
         public int TombstonesSpawnAmount;
         public Entity TombstonePrefab;
+        public Entity ZombiePrefab;
+        public float ZombieSpawnInterval;
     }
 }

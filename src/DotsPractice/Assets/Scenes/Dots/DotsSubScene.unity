@@ -173,7 +173,10 @@ MonoBehaviour:
   _tombstonesSpawnAmount: 250
   _tombstonePrefab: {fileID: 6432581100300243915, guid: 10281d5abc6921c4999520d03caaff17,
     type: 3}
+  _zombiePrefab: {fileID: 3332214254839924849, guid: 3de67a6931afc374780bc1b9e2b5194d,
+    type: 3}
   _seed: 100
+  _zombieSpawnInterval: 5
 --- !u!1 &1614175595
 GameObject:
   m_ObjectHideFlags: 0

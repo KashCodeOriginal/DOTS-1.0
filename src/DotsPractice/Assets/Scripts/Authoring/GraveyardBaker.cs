@@ -12,7 +12,10 @@ namespace Authoring
             {
                 FieldDimension = authoring.FieldDimensions,
                 TombstonesSpawnAmount = authoring.TombstonesSpawnAmount,
-                TombstonePrefab = GetEntity(authoring.TombstonePrefab)
+                TombstonePrefab = GetEntity(authoring.TombstonePrefab),
+                ZombiePrefab = GetEntity(authoring.ZombiePrefab),
+                ZombieSpawnInterval = authoring.ZombieSpawnInterval
+                
             });
             
             AddComponent(new GraveyardRandom
@@ -20,7 +23,8 @@ namespace Authoring
                 RandomValue = Random.CreateFromIndex(authoring.Seed)
             });
             
-            AddComponent(new ZombieSpawnPoint { });
+            AddComponent(new ZombieSpawnPoint());
+            AddComponent(new ZombieSpawnTimer());
         }
     }
 }
