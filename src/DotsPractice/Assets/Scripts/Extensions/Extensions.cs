@@ -1,6 +1,6 @@
 ﻿using Unity.Mathematics;
 
-namespace DefaultNamespace
+namespace Extensions
 {
     public static class Extensions
     {

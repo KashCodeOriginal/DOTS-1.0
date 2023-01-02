@@ -1,4 +1,4 @@
-﻿using DefaultNamespace;
+﻿using Extensions;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -81,7 +81,7 @@ namespace Components
             do
             {
                 randomPosition = _graveyardRandom.ValueRW.RandomValue.NextFloat3(minCorner, maxCorner);
-                randomPosition.y = 1f;
+                randomPosition.y = 0.5f;
             }
             while (math.distancesq(_transformAspect.LocalPosition, randomPosition) < TOMBSTONE_SAFETY_RADIUS); 
             

@@ -33,7 +33,7 @@ namespace Systems
 
             var ecb = new EntityCommandBuffer(Allocator.Temp);
             var spawnPoints = new NativeList<float3>(Allocator.Temp);
-            var tombstoneOffset = new float3(0f, -2f, 1f);
+            var tombstoneOffset = new float3(0f, -4f, 1f);
 
             for (int i = 0; i < graveyard.TombstonesSpawnAmount; i++)
             {

@@ -15,7 +15,6 @@ namespace Authoring
                 TombstonePrefab = GetEntity(authoring.TombstonePrefab),
                 ZombiePrefab = GetEntity(authoring.ZombiePrefab),
                 ZombieSpawnInterval = authoring.ZombieSpawnInterval
-                
             });
             
             AddComponent(new GraveyardRandom
