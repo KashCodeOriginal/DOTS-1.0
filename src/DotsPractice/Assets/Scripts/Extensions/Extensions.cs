@@ -6,7 +6,9 @@ namespace Extensions
     {
         public static float GetRotationForTargetAngle(this float3 position, float3 target)
         {
-            return math.atan2(target.y - position.y, target.x - position.x) + math.PI;
+            var x = position.x - target.x;
+            var y = position.z - target.z;
+            return math.atan2(x, y) + math.PI;
         }
     }
 }
