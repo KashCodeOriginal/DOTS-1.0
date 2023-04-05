@@ -16,7 +16,7 @@ namespace Systems.SpawnZombie
             _ecb = ecb;
         }
 
-        private float _deltaTime;
+        private readonly float _deltaTime;
 
         private EntityCommandBuffer _ecb;
 

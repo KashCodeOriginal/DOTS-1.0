@@ -1,9 +1,5 @@
-﻿using Components.Zombie.Eat;
-using Components.Zombie.Walk;
-using Unity.Burst;
+﻿using Unity.Burst;
 using Unity.Entities;
-using Unity.Mathematics;
-using UnityEngine;
 using ZombieEatAspect = Components.Zombie.Eat.ZombieEatAspect;
 
 namespace Systems.Eat
